@@ -31,6 +31,23 @@ app.get('/products/:id', (req, res) => {
   res.json(product);
 });
 
+
+/*
+* Paul Edited here
+* Run the code with  ``` npm run dev```
+*/
+app.put('/products/:id', (req,res)=>{
+  const id = Number(req.params.id);
+  const index = products.findIndex(p => p.id === id);
+  if(index <= -1) return res.status(404).json({error: "Product not found"});
+
+  const {name, price , quantity} = req.body;
+  if(!name || !price || !quantity) return res.status(400).json({error: "Invalid Body!"});
+  products[index] = {id, name, price, quantity};
+  res.status(200).json({message:"Product updated successfully!", products});
+});
+
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Product Inventory API running at http://localhost:${PORT}`);

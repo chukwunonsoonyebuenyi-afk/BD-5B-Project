@@ -2,5 +2,23 @@
   "dependencies": {
     "dotenv": "^18.0.8",
     "express": "^5.3.0"
-  }
+  },
+  "name": "bd-5b-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"node --watch server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chukwunonsoonyebuenyi-afk/BD-5B-Project.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/chukwunonsoonyebuenyi-afk/BD-5B-Project/issues"
+  },
+  "homepage": "https://github.com/chukwunonsoonyebuenyi-afk/BD-5B-Project#readme"
 }
