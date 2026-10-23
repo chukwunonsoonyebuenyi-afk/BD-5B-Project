@@ -48,6 +48,29 @@ app.put('/products/:id', (req,res)=>{
 });
 
 
+/*
+ * MKO-Abiodun Edited here
+ * Run the code with ``` npm run dev ```
+ */
+app.post('/products', (req, res) => {
+  const { name, price, quantity } = req.body;
+
+  if (!name || !price || !quantity) return res.status(400).json({ error: "name, price and quantity are required" });
+
+  const newProduct = {
+    id: products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1,
+    name,
+    price,
+    quantity
+  };
+
+  products.push(newProduct);
+
+  res.status(201).json({ message: "Product created successfully!", product: newProduct });
+});
+
+
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Product Inventory API running at http://localhost:${PORT}`);
