@@ -69,7 +69,15 @@ app.post('/products', (req, res) => {
   res.status(201).json({ message: "Product created successfully!", product: newProduct });
 });
 
+//DELETE route
+app.delete('/products/:id', (req,res)=>{
+  const id = Number(req.params.id);
+  const product = products.filter(p => p.id !== id);
 
+  if(product.length === products.length) return res.status(404).json({error:"Product not found"});
+  products = product;
+  res.status(200).json({message:"Product deleted!", products});
+});
 
 // Start server
 app.listen(PORT, () => {
